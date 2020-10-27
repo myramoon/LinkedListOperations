@@ -16,8 +16,8 @@ public class MyLinkedList {
             this.tail = newNode;
         }
         else {
-            INode tempNode = this.head; //already present node to which head pointed is now in tempNode
-            this.head = newNode;        //make head point to the new node
+            INode tempNode = this.head;  //already present node to which head pointed is now in tempNode
+            this.head = newNode;         //make head point to the new node
             this.head.setNext(tempNode); // node next to node being pointed by head is set to the old node (already present)
         }
     }
@@ -42,6 +42,16 @@ public class MyLinkedList {
     public INode pop() {
         INode tempNode = this.head;         //store head in tempNode
         this.head = head.getNext();         //set head to point to next node after head
+        return tempNode;
+    }
+
+    public INode popLast(){
+        INode tempNode = this.head;
+        while (!tempNode.getNext().equals(tail)) {
+            tempNode = tempNode.getNext();    //set tempNode to successive nodes
+        }
+        this.tail = tempNode;                //make tail store tempNode(which is storing last element before tail)
+        tempNode = tempNode.getNext();       //make tempNode store tail
         return tempNode;
     }
 }

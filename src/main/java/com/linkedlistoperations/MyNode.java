@@ -1,4 +1,4 @@
-/* Purpose: to delete first element of linked list */
+/* Purpose: to delete last element of linked list */
 package com.linkedlistoperations;
 
 public class MyNode<E> implements INode<E> {
