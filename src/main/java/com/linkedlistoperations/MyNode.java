@@ -1,4 +1,4 @@
-/* Purpose: to create a linked list and insert a node between 2 existing nodes */
+/* Purpose: to delete first element of linked list */
 package com.linkedlistoperations;
 
 public class MyNode<E> implements INode<E> {

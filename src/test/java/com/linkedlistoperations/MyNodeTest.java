@@ -1,4 +1,4 @@
-/* Purpose: to create a linked list and insert a node between 2 existing nodes */
+/* Purpose: to delete first element of linked list */
 package com.linkedlistoperations;
 
 import org.junit.Assert;
@@ -12,11 +12,9 @@ public class MyNodeTest<T> {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(70);
-
         //setting next node for each node using setter method
         myFirstNode.setNext(mySecondNode);
         mySecondNode.setNext(myThirdNode);
-
         //checking if next nodes are set as expected
         boolean result = myFirstNode.getNext().equals(mySecondNode) && mySecondNode.getNext().equals(myThirdNode);
         Assert.assertTrue(result);
@@ -28,7 +26,6 @@ public class MyNodeTest<T> {
         MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(56);
-
         //create a linked list
         MyLinkedList myLinkedList = new MyLinkedList();
         //add nodes to the linked list
@@ -45,7 +42,6 @@ public class MyNodeTest<T> {
         MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(56);
-
         //create a linked list
         MyLinkedList myLinkedList = new MyLinkedList();
         //add nodes to the linked list
@@ -62,7 +58,6 @@ public class MyNodeTest<T> {
         MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(56);
-
         //create a linked list
         MyLinkedList myLinkedList = new MyLinkedList();
         //add nodes to the linked list
@@ -72,5 +67,24 @@ public class MyNodeTest<T> {
         boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given3NumbersInList_AfterDeleting1stElement_ShouldHave2ndElementAtHead() {
+        //initialise node objects
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        //create a linked list
+        MyLinkedList myLinkedList = new MyLinkedList();
+        //add nodes to the linked list
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        //delete first element
+        myLinkedList.pop();
+        boolean result = myLinkedList.head.equals(mySecondNode);
+        Assert.assertTrue(result);
+    }
+
 }
 
