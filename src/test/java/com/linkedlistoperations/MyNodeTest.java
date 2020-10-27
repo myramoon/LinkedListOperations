@@ -1,4 +1,4 @@
-/* Purpose: to create nodes of a linked list and add them to top of list */
+/* Purpose: to create nodes of a linked list and append them to list */
 package com.linkedlistoperations;
 
 import org.junit.Assert;
@@ -36,6 +36,23 @@ public class MyNodeTest<T> {
         myLinkedList.add(mySecondNode);
         myLinkedList.add(myThirdNode);
         boolean result = myLinkedList.head.equals(myThirdNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myFirstNode);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given3Numbers_WhenAddedToLinkedList_ShouldBeAppendedToBottom() {
+        //initialise node objects
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+
+        //create a linked list
+        MyLinkedList myLinkedList = new MyLinkedList();
+        //add nodes to the linked list
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
     }
 }
