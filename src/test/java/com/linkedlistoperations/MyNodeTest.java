@@ -1,4 +1,4 @@
-/* Purpose: to create nodes of a linked list and append them to list */
+/* Purpose: to create a linked list and insert a node between 2 existing nodes */
 package com.linkedlistoperations;
 
 import org.junit.Assert;
@@ -52,6 +52,23 @@ public class MyNodeTest<T> {
         myLinkedList.append(myFirstNode);
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myThirdNode);
+        boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given3Numbers_WhenInserting2ndInBetween_ShouldPassLinkedListTest() {
+        //initialise node objects
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+
+        //create a linked list
+        MyLinkedList myLinkedList = new MyLinkedList();
+        //add nodes to the linked list
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.insert(myFirstNode , mySecondNode);
         boolean result = myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
     }
