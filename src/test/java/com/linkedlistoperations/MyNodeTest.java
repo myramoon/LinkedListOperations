@@ -1,4 +1,4 @@
-/* Purpose: to delete last element of linked list */
+/* Purpose: to find node with particular value in linked list */
 package com.linkedlistoperations;
 
 import org.junit.Assert;
@@ -101,6 +101,23 @@ public class MyNodeTest<T> {
         //delete first element
         INode result = myLinkedList.popLast();
         Assert.assertEquals(myThirdNode,  result);
+    }
+
+    @Test
+    public void given3NumbersInList_WhenWithMatchingValueOfSearchNode_ShouldReturnTrue() {
+        //initialise node objects
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        //create a linked list
+        MyLinkedList myLinkedList = new MyLinkedList();
+        //add nodes to the linked list
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        //check if node with value 30 is present
+        boolean result = myLinkedList.search(mySecondNode);
+        Assert.assertTrue(result);
     }
 }
 
