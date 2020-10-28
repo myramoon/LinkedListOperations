@@ -60,10 +60,14 @@ public class MyLinkedList {
         while (tempNode != searchnode && tempNode.getNext() != this.tail){
             tempNode = tempNode.getNext();
         }
-        if (tempNode == searchnode)
-            return true;
-        else
-            return false;
+        return tempNode == searchnode;
+    }
 
+    public <E> INode index(E searchKey) {
+        INode tempNode = this.head;
+        while (tempNode.getKey() != searchKey) {
+            tempNode = tempNode.getNext();
+        }
+        return tempNode;
     }
 }
