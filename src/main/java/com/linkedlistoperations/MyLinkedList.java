@@ -1,3 +1,4 @@
+/* Purpose: to delete node at specific position and verify new size of linked list */
 package com.linkedlistoperations;
 
 public class MyLinkedList {
@@ -69,5 +70,37 @@ public class MyLinkedList {
             tempNode = tempNode.getNext();
         }
         return tempNode;
+    }
+
+    public INode remove(INode searchNode) {
+        INode firstNode = this.head;            // store current head in firstNode
+        INode temp1Node = this.head;
+        while (temp1Node != searchNode) {       //traverse list till temp1Node is equal to searchNode
+            temp1Node = temp1Node.getNext();
+        }
+        this.head = temp1Node;                  //reset head to node to be deleted
+        pop();
+        INode endNode = this.head;              //store head node after popping , to be later joined at the end
+        this.head = firstNode;                  //reset head to firstNode
+        INode temp2Node = this.head;            //traverse list till node before the deleted node
+        while (temp2Node.getNext() != searchNode) {
+            temp2Node = temp2Node.getNext();
+        }
+        temp2Node.setNext(endNode);             //break earlier link and join front sublist to endNode
+        return this.head;
+    }
+
+    public int size() {                         //calculates size of linked list
+        int size = 0;
+        if (this.head == null)
+            return size;
+        else
+            size = 1;
+        INode tempNode = this.head;
+        while (tempNode.getNext() != null ) {
+            tempNode = tempNode.getNext();
+            size++;
+        }
+        return size;
     }
 }

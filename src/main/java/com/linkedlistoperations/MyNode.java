@@ -1,4 +1,3 @@
-/* Purpose: to insert node at specific position in linked list */
 package com.linkedlistoperations;
 
 public class MyNode<E> implements INode<E> {
